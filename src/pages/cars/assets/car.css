@@ -1,0 +1,127 @@
+/* car list classes */
+.car-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  max-width: 100rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+/* car card classes */
+.car-card {
+  list-style: none;
+  flex: initial;
+  width: 350px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 30px;
+}
+
+.car-image-holder {
+  position: relative;
+  overflow: hidden; /* Used to crop heart overlay overflow */
+  width: 325px;
+  height: 265px;
+}
+
+.car-thumbnail {
+  object-fit: cover;
+  width: 325px;
+  height: 265px;
+}
+
+.car-thumbnail--liked {
+  object-fit: cover;
+  width: 325px;
+  height: 265px;
+  filter: grayscale(100%);
+  animation: greyout 2.5s 0s 1; /* overlay animation */
+}
+
+.car-desc {
+  width: 325px;
+  margin-left: -12px;
+  color: white;
+  background-color: #2d2d2b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-left: solid 1px;
+  border-right: solid 1px;
+  padding: 10px;
+}
+
+/* Bottom half of heart */
+.the-heart-triangle {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 173.2px 162px 0 162px;
+  border-color: #fef100 transparent transparent transparent;
+}
+
+.the-heart-triangle > button {
+  position: relative;
+  background-color: white;
+  border: none;
+  top: -125px;
+  left: -47px;
+  width: 95px;
+  margin: 0px;
+}
+
+/* Overlay heart shape for image */
+.heart-overlay {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fef100;
+  transform: rotate(45deg); /* need to rotate heart to have it correct way up */
+  animation: heart 2.5s 0s 1; /* overlay animation */
+}
+.heart-overlay:before,
+.heart-overlay:after {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  content: "";
+  border-radius: 50%;
+  background-color: #fef100;
+}
+.heart-overlay:before {
+  bottom: 0px;
+  left: -100px;
+}
+.heart-overlay:after {
+  top: -100px;
+  right: 0px;
+}
+
+/* animations */
+@keyframes heart {
+  0% {
+    transform: rotate(45deg) translate3d(40px, 40px, 0px) scale(0.2);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: rotate(45deg) translate3d(-120px, -120px, 0px) scale(0.2);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: rotate(45deg) translate3d(0px, 0px, 0px) scale(1);
+  }
+}
+
+@keyframes greyout {
+  0% {
+    filter: grayscale(0%);
+  }
+  100% {
+    filter: grayscale(100%);
+  }
+}
