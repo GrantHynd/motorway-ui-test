@@ -4,9 +4,10 @@ import "../assets/car.css";
 
 type Props = {
   car: Car;
+  onImageClick: (car: Car) => void;
 };
 
-export default function CarCard({ car }: Props) {
+export default function CarCard({ car, onImageClick }: Props) {
   // This state would usually just be retrieved from active user's data via Context
   const [isLiked, setIsLiked] = useState(false);
 
@@ -17,7 +18,7 @@ export default function CarCard({ car }: Props) {
 
   return (
     <li className="car-card">
-      <div className="car-image-holder">
+      <div className="car-image-holder" onClick={() => onImageClick(car)}>
         <img
           className={`car-thumbnail ${isLiked ? "car-thumbnail--liked" : ""}`}
           src={`${car.url}.jpg`}

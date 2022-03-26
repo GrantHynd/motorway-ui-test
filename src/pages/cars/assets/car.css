@@ -25,6 +25,7 @@
   overflow: hidden; /* Used to crop heart overlay overflow */
   width: 325px;
   height: 265px;
+  cursor: pointer;
 }
 
 .car-thumbnail {
@@ -71,6 +72,7 @@
   left: -47px;
   width: 95px;
   margin: 0px;
+  cursor: pointer;
 }
 
 /* Overlay heart shape for image */
