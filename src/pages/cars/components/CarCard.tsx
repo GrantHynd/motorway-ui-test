@@ -29,10 +29,12 @@ export default function CarCard({ car, onImageClick }: Props) {
       <div className="car-desc" title={car.description || car.alt_description}>
         {car.description || car.alt_description}
       </div>
-      <div className="the-heart-triangle">
-        <button onClick={() => handleLike(car.id)}>
-          {isLiked ? "💔" : "❤️"} {car.likes}
-        </button>
+      <div className="car-content">
+        <div className="the-heart-triangle">
+          <button onClick={() => handleLike(car.id)}>
+            {isLiked ? "💔" : "❤️"} {car.likes}
+          </button>
+        </div>
       </div>
     </li>
   );
